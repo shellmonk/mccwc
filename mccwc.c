@@ -39,6 +39,8 @@ Counter read_from_fd(FILE *fd) {
   //       but reading one char at a time 
   //       works for now
   while(WEOF != (wc = fgetwc(fd))) {
+
+    // FIX: This isn't correct. Counting bytes is buggy
     if(wc == wctob(wc)) {
       cnt.bytes++;
     } else {
@@ -79,7 +81,6 @@ void print_help() {
   printf("-l\tprint the newline count\n");
   printf("-w\tprint the wird count\n\n");
   printf("Without FILE, read standard input\n");
-  exit(EXIT_SUCCESS);
 }
 
 
@@ -125,6 +126,7 @@ int main(int argc, char ** argv) {
 
   if(hflag) {
     print_help();
+    exit(EXIT_SUCCESS);
   }
 
   // if no flags - c, w and l are default
