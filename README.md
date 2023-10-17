@@ -1,7 +1,9 @@
 # MCCWC - Monk Coding Challenge 1: wc tool in C
 
 
-Clone of wc UNIX command tool. Done as part of [Monk Coding Challenge](https://shellmonk.io/posts/monk-coding-challenge-0-prelude/) for [CodingChallenges.FYI](https://codingchallenges.fyi).
+Clone of wc UNIX command tool written in C. Done as part of [Monk Coding Challenge](https://shellmonk.io/posts/monk-coding-challenge-0-prelude/) for [CodingChallenges.FYI](https://codingchallenges.fyi).
+
+Parent repo: [monk-coding-challenges](https://github.com/shellmonk/monk-coding-challenges)
 
 Challenge specification: [Write Your Own wc Tool](https://codingchallenges.fyi/challenges/challenge-wc)
 
