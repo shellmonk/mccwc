@@ -35,23 +35,19 @@ Counter read_from_fd(FILE *fd) {
   // new fancy way of initializing structs
   Counter cnt = { .bytes = 0, .chars = 0, .words = 0, .lines = 0 };
 
+  char buff[8];
   // TODO: This can be improved by buffering,
   //       but reading one char at a time 
   //       works for now
   while(WEOF != (wc = fgetwc(fd))) {
-
-    // FIX: This isn't correct. Counting bytes is buggy
-    if(wc == wctob(wc)) {
-      cnt.bytes++;
-    } else {
-      cnt.bytes += 4;
-    }
     cnt.chars++;
+    // convert wide character to multibyte and add the lenght to the sum of bytes
+    cnt.bytes += wctomb(buff, wc);
 
     // if new line, add newline, obviously
     if(wc == L'\n') cnt.lines++;
 
-    // check if character is whitespace - ' ', \n, \t, \r, etc.
+    // check if wide character is whitespace - ' ', \n, \t, \r, etc.
     bool space = iswspace(wc);
 
     // counting the words
@@ -148,6 +144,9 @@ int main(int argc, char ** argv) {
 
   // Very nice
   Counter counter = read_from_fd(inputfd);
+
+  // close the stream
+  fclose(inputfd);
 
   if(lflag) printf("  %ld", counter.lines);
   if(wflag) printf("  %ld", counter.words);
