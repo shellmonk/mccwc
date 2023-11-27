@@ -7,9 +7,9 @@ Parent repo: [monk-coding-challenges](https://github.com/shellmonk/monk-coding-c
 
 Challenge specification: [Write Your Own wc Tool](https://codingchallenges.fyi/challenges/challenge-wc)
 
-## Blog Post (WIP)
+## Blog Post
 
-[Monk Coding Challenge 1: wc tool in C](https://shellmonk.io/posts/monk-coding-challenge-1-wc/)
+[Monk Coding Challenge 1: wc tool in C](https://shellmonk.io/posts/monk-coding-challenge-1-wc-tool-in-c/)
 
 
 ## Prerequisites
